@@ -1,3 +1,8 @@
+/** This file is the source file of wordladder
+    that two words are given, find one of the shortest
+    path between these two words. Path mean a series of 
+    words that differ one and only one letter.*/
+
 #include <cctype>
 #include <cmath>
 #include <fstream>
@@ -10,10 +15,23 @@
 
 using namespace std;
 
+/** The whole functionality of this function is composed of several help functions listed below.*/
 void welcome();
+
+/** Function: userPromptFileName
+    Prompt message for user to input the name of input file and open the file.
+    Actually, i don't use its return value in this implimentation
+    */
 string userPromptFileName(ifstream & infile, string prompt);
+
+/** Function: readWordsInFile
+    Call function userPromptFileName.
+    Open a file user specified and store all words one at a line
+    in a SET words*/
 void readWordsInFile(ifstream & infile, Set<string> & words);
-Stack<string> findShortestPath(Set<string> & words, string word1, string word2); //This function is not implemented yet
+
+
+Stack<string> findShortestPath(Set<string> & words, string word1, string word2); 
 bool isNeighbor(string word1, string word2);
 string getWordFromUser(int index);
 void output(Stack<string> finalStack, string word1, string word2);
