@@ -30,9 +30,22 @@ string userPromptFileName(ifstream & infile, string prompt);
     in a SET words*/
 void readWordsInFile(ifstream & infile, Set<string> & words);
 
+/** Function: findShortestPath
+ *  This function is used to find one of the shortest paths between two given words
+ *  in the words bank user given. Every step differ one letter
+*/
+Stack<string> findShortestPath(Set<string> & words, string word1, string word2);
 
-Stack<string> findShortestPath(Set<string> & words, string word1, string word2); 
+/** Function: isNeighbor
+ *  This function is used to decide whether two words differ one letter. If so, 
+ *  returns true, returns false otherwise.
+*/
 bool isNeighbor(string word1, string word2);
+
+/** Function: getWordFromUser
+ *  This function prompt and get the two words given by user to find A shortest path 
+ *  between them
+*/
 string getWordFromUser(int index);
 void output(Stack<string> finalStack, string word1, string word2);
 
@@ -104,6 +117,9 @@ void readWordsInFile(ifstream & infile, Set<string> & words){
     infile.close();
 }
 
+/** This function is very inefficient now, a more efficient implementation
+ *  is needed!
+*/
 Stack<string> findShortestPath(Set<string> & words, string word1, string word2){
     Queue<Stack<string>> queueOfStacks;
     Stack<string> originalStack{word1};
@@ -132,7 +148,6 @@ Stack<string> findShortestPath(Set<string> & words, string word1, string word2){
                     nextStepStack = frontOfQueue;
                     nextStepStack.add(wordInSet);
                     queueOfStacks.add(nextStepStack);
-//                    break;
                 }
             }
         }
