@@ -3,6 +3,9 @@
     path between these two words. Path mean a series of 
     words that differ one and only one letter.*/
 
+// The condition that no path existed between two words is not 
+// tested yet.
+
 #include <cctype>
 #include <cmath>
 #include <fstream>
